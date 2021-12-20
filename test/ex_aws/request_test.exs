@@ -52,12 +52,14 @@ defmodule ExAws.RequestTest do
     assert_receive {[:ex_aws, :request, :start], %{system_time: _},
                     %{
                       options: [],
+                      service: :s3,
                       attempt: 1
                     }}
 
     assert_receive {[:ex_aws, :request, :stop], %{duration: _},
                     %{
                       options: [],
+                      service: :s3,
                       attempt: 1,
                       result: :error
                     }}
@@ -94,12 +96,14 @@ defmodule ExAws.RequestTest do
     assert_receive {[:ex_aws, :request, :start], %{system_time: _},
                     %{
                       options: [],
+                      service: :s3,
                       attempt: 1
                     }}
 
     assert_receive {[:ex_aws, :request, :stop], %{duration: _},
                     %{
                       options: [],
+                      service: :s3,
                       attempt: 1,
                       result: :ok
                     }}

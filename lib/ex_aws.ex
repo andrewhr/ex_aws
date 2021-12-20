@@ -61,6 +61,7 @@ defmodule ExAws do
   With `:metadata` map including the following fields:
 
     * `:result` - the request result: `:ok` or `:error`
+    * `:service` - the operation service
     * `:attempt` - the attempt number
     * `:options` - extra options given to the repo operation under
       `:telemetry_options`

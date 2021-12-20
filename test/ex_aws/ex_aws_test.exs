@@ -85,6 +85,7 @@ defmodule ExAwsTest do
 
     assert_receive {[:ex_aws, :custom_request, :start], %{system_time: _},
                     %{
+                      service: :dynamodb,
                       attempt: 1,
                       options: [name: :sample]
                     }}
@@ -92,6 +93,7 @@ defmodule ExAwsTest do
     assert_receive {[:ex_aws, :custom_request, :stop], %{duration: _},
                     %{
                       options: [name: :sample],
+                      service: :dynamodb,
                       attempt: 1,
                       result: :ok
                     }}
@@ -114,12 +116,14 @@ defmodule ExAwsTest do
     assert_receive {[:ex_aws, :request, :start], %{system_time: _},
                     %{
                       options: [],
+                      service: :dynamodb,
                       attempt: 1
                     }}
 
     assert_receive {[:ex_aws, :request, :stop], %{duration: _},
                     %{
                       options: [],
+                      service: :dynamodb,
                       attempt: 1,
                       result: :error
                     }}
